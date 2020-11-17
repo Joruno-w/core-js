@@ -1,7 +1,7 @@
 {
   "name": "core-js-builder",
   "description": "core-js builder",
-  "version": "3.16.0",
+  "version": "4.0.0-alpha.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/zloirock/core-js.git",
@@ -9,13 +9,12 @@
   },
   "main": "index.js",
   "dependencies": {
-    "core-js": "3.16.0",
-    "core-js-compat": "3.16.0",
-    "mkdirp": ">=0.5.5 <1",
-    "webpack": ">=4.46.0 <5"
+    "@core-js/compat": "4.0.0-alpha.0",
+    "core-js": "4.0.0-alpha.0",
+    "webpack": "^5.48.0"
   },
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=12.13.0"
   },
   "funding": {
     "type": "opencollective",
