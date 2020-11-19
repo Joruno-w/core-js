@@ -1557,15 +1557,6 @@ export const data = {
     chrome: '93',
     firefox: '92',
   },
-  // TODO: Remove from `core-js@4`
-  'esnext.object.iterate-entries': {
-  },
-  // TODO: Remove from `core-js@4`
-  'esnext.object.iterate-keys': {
-  },
-  // TODO: Remove from `core-js@4`
-  'esnext.object.iterate-values': {
-  },
   'esnext.observable': {
   },
   'esnext.promise.try': {
