@@ -1759,7 +1759,6 @@ class Array {
   at(index: int): any;
 }
 
-
 class String {
   at(index: int): string | undefined;
 }
@@ -1779,7 +1778,6 @@ core-js(-pure)/actual|full/typed-array/at
 ```js
 [1, 2, 3].at(1);  // => 2
 [1, 2, 3].at(-1); // => 3
-
 
 '123'.at(-1);     // => '3'
 ```
