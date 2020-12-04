@@ -1,4 +1,5 @@
 require('../../modules/es.object.to-string');
 require('../../modules/esnext.string.code-points');
+var entryUnbind = require('../../internals/entry-unbind');
 
-module.exports = require('../../internals/entry-unbind')('String', 'codePoints');
+module.exports = entryUnbind('String', 'codePoints');
