@@ -108,5 +108,5 @@ if (!set || !clear) {
 
 module.exports = {
   set: set,
-  clear: clear
+  clear: clear,
 };

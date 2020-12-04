@@ -67,7 +67,7 @@ var replace = {
   '(': '%28',
   ')': '%29',
   '~': '%7E',
-  '%20': '+'
+  '%20': '+',
 };
 
 var replacer = function (match) {
@@ -89,7 +89,7 @@ var parseSearchParams = function (result, query) {
         entry = attribute.split('=');
         result.push({
           key: deserialize(entry.shift()),
-          value: deserialize(entry.join('='))
+          value: deserialize(entry.join('=')),
         });
       }
     }
@@ -109,7 +109,7 @@ var URLSearchParamsIterator = createIteratorConstructor(function Iterator(params
   setInternalState(this, {
     type: URL_SEARCH_PARAMS_ITERATOR,
     iterator: getIterator(getInternalParamsState(params).entries),
-    kind: kind
+    kind: kind,
   });
 }, 'Iterator', function next() {
   var state = getInternalIteratorState(this);
@@ -134,7 +134,7 @@ var URLSearchParamsConstructor = function URLSearchParams(/* init */) {
     type: URL_SEARCH_PARAMS,
     entries: entries,
     updateURL: function () { /* empty */ },
-    updateSearchParams: updateSearchParams
+    updateSearchParams: updateSearchParams,
   });
 
   if (init !== undefined) {
@@ -292,7 +292,7 @@ redefineAll(URLSearchParamsPrototype, {
   // `URLSearchParams.prototype.entries` method
   entries: function entries() {
     return new URLSearchParamsIterator(this, 'entries');
-  }
+  },
 }, { enumerable: true });
 
 // `URLSearchParams.prototype[@@iterator]` method
@@ -314,7 +314,7 @@ redefine(URLSearchParamsPrototype, 'toString', function toString() {
 setToStringTag(URLSearchParamsConstructor, URL_SEARCH_PARAMS);
 
 $({ global: true, forced: !USE_NATIVE_URL }, {
-  URLSearchParams: URLSearchParamsConstructor
+  URLSearchParams: URLSearchParamsConstructor,
 });
 
 // Wrap `fetch` and `Request` for correct work with polyfilled `URLSearchParams`
@@ -330,7 +330,7 @@ if (!USE_NATIVE_URL && typeof Headers == 'function') {
         }
         return create(init, {
           body: createPropertyDescriptor(0, String(body)),
-          headers: createPropertyDescriptor(0, headers)
+          headers: createPropertyDescriptor(0, headers),
         });
       }
     } return init;
@@ -340,7 +340,7 @@ if (!USE_NATIVE_URL && typeof Headers == 'function') {
     $({ global: true, enumerable: true, forced: true }, {
       fetch: function fetch(input /* , init */) {
         return nativeFetch(input, arguments.length > 1 ? wrapRequestOptions(arguments[1]) : {});
-      }
+      },
     });
   }
 
@@ -354,12 +354,12 @@ if (!USE_NATIVE_URL && typeof Headers == 'function') {
     RequestConstructor.prototype = RequestPrototype;
 
     $({ global: true, forced: true }, {
-      Request: RequestConstructor
+      Request: RequestConstructor,
     });
   }
 }
 
 module.exports = {
   URLSearchParams: URLSearchParamsConstructor,
-  getState: getInternalParamsState
+  getState: getInternalParamsState,
 };

@@ -20,7 +20,7 @@ var isExtensible = Object.isExtensible || function () {
 var setMetadata = function (it) {
   defineProperty(it, METADATA, { value: {
     objectID: 'O' + id++, // object ID
-    weakData: {}          // weak collections IDs
+    weakData: {},         // weak collections IDs
   } });
 };
 
@@ -86,7 +86,7 @@ var meta = module.exports = {
   enable: enable,
   fastKey: fastKey,
   getWeakData: getWeakData,
-  onFreeze: onFreeze
+  onFreeze: onFreeze,
 };
 
 hiddenKeys[METADATA] = true;
