@@ -2,7 +2,6 @@ var $ = require('../internals/export');
 var hiddenKeys = require('../internals/hidden-keys');
 var isObject = require('../internals/is-object');
 var has = require('../internals/has');
-var defineProperty = require('../internals/object-define-property').f;
 var getOwnPropertyNamesModule = require('../internals/object-get-own-property-names');
 var getOwnPropertyNamesExternalModule = require('../internals/object-get-own-property-names-external');
 var uid = require('../internals/uid');
@@ -12,10 +11,10 @@ var REQUIRED = false;
 var METADATA = uid('meta');
 var id = 0;
 
+// eslint-disable-next-line es/no-object-defineproperty -- safe
+var defineProperty = Object.defineProperty;
 // eslint-disable-next-line es/no-object-isextensible -- safe
-var isExtensible = Object.isExtensible || function () {
-  return true;
-};
+var isExtensible = Object.isExtensible;
 
 var setMetadata = function (it) {
   defineProperty(it, METADATA, { value: {
@@ -77,7 +76,7 @@ var enable = function () {
     };
 
     $({ target: 'Object', stat: true, forced: true }, {
-      getOwnPropertyNames: getOwnPropertyNamesExternalModule.f
+      getOwnPropertyNames: getOwnPropertyNamesExternalModule.f,
     });
   }
 };
