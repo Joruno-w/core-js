@@ -1,3 +1,3 @@
-var parent = require('../../stable/instance/match-all');
+var parent = require('../../actual/instance/match-all');
 
 module.exports = parent;
