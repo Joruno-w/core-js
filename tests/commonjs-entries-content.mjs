@@ -2,9 +2,8 @@
 import { deepStrictEqual, ok } from 'assert';
 import { globby } from 'globby';
 import konan from 'konan';
-
-const allModules = require('core-js-compat/modules');
-const entries = require('core-js-compat/entries');
+import allModules from '@core-js/compat/modules';
+import entries from '@core-js/compat/entries';
 
 function filter(regexp) {
   return allModules.filter(it => regexp.test(it));
@@ -148,9 +147,10 @@ async function unexpectedInnerNamespace(namespace, unexpected) {
 }
 
 await Promise.all([
-  unexpectedInnerNamespace('es', /\/(features|stable)\//),
-  unexpectedInnerNamespace('stable', /\/features\//),
-  unexpectedInnerNamespace('features', /\/es\//),
+  unexpectedInnerNamespace('es', /\/(actual|features|stable)\//),
+  unexpectedInnerNamespace('stable', /\/(actual|features)\//),
+  unexpectedInnerNamespace('actual', /\/(es|features)\//),
+  unexpectedInnerNamespace('features', /\/(es|stable)\//),
 ]);
 
 console.log(chalk.green('entry points content tested'));
