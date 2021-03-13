@@ -792,12 +792,5 @@ PATH = 'core-js';
 load('bundle/actual');
 load('bundle/full');
 
-PATH = 'core-js-bundle';
-load('');
-load('actual');
-load('actual.min');
-load('full');
-load('full.min');
-
 // eslint-disable-next-line no-console -- output
 console.log(chalk.green(`tested ${ chalk.cyan(tested) } commonjs entry points`));
