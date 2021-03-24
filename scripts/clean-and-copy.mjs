@@ -14,8 +14,9 @@ function options(overwrite) {
 }
 
 await Promise.all((await globby([
-  'tests/bundles/*',
+  'packages/core-js/bundle/*',
   'packages/core-js-pure/!(override|.npmignore|package.json|README.md)',
+  'tests/bundles/*',
 ], { onlyFiles: false })).map(path => rm(path, { force: true, recursive: true })));
 
 // eslint-disable-next-line no-console -- output
