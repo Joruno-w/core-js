@@ -1543,7 +1543,11 @@ export const data = {
     chrome: '93',
     firefox: '92',
   },
-  'esnext.observable': {
+  'esnext.observable.constructor': {
+  },
+  'esnext.observable.from': {
+  },
+  'esnext.observable.of': {
   },
   'esnext.promise.try': {
   },
