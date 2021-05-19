@@ -1,5 +1,5 @@
 require('../../modules/es.array.iterator');
-require('../../modules/es.set');
+require('../../modules/es.set.constructor');
 require('../../modules/es.string.iterator');
 require('../../modules/esnext.set.is-superset-of');
 require('../../modules/web.dom-collections.iterator');

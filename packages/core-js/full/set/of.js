@@ -1,6 +1,7 @@
 'use strict';
 require('../../modules/es.array.iterator');
-require('../../modules/es.set');
+require('../../modules/es.set.constructor');
+require('../../modules/es.string.iterator');
 require('../../modules/esnext.set.of');
 var path = require('../../internals/path');
 
