@@ -1558,8 +1558,6 @@ export const data = {
   },
   'esnext.observable.of': {
   },
-  'esnext.promise.try': {
-  },
   'esnext.reflect.define-metadata': {
   },
   'esnext.reflect.delete-metadata': {
