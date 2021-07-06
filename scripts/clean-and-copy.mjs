@@ -14,7 +14,7 @@ function options(overwrite) {
 }
 
 await Promise.all((await globby([
-  'packages/core-js/bundle/*',
+  'packages/core-js/(bundle|commonjs)/*',
   'packages/core-js-pure/!(override|.npmignore|package.json|README.md)',
   'tests/bundles/*',
 ], { onlyFiles: false })).map(path => rm(path, { force: true, recursive: true })));
