@@ -68,8 +68,6 @@
     "./commonjs/proposals": "./commonjs/proposals/index.js",
     "./proposals/*": "./proposals/*.js",
     "./commonjs/proposals/*": "./commonjs/proposals/*.js",
-    "./stage": "./stage/index.js",
-    "./commonjs/stage": "./commonjs/stage/index.js",
     "./stage/*": "./stage/*.js",
     "./commonjs/stage/*": "./commonjs/stage/*.js",
     "./actual": "./actual/index.js",

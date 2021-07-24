@@ -20,7 +20,6 @@ const core = Object.entries(Object.keys(entries).reduce((accumulator, it) => {
   './modules/*': './modules/*.js',
   './proposals': './proposals/index.js',
   './proposals/*': './proposals/*.js',
-  './stage': './stage/index.js',
   './stage/*': './stage/*.js',
 })).reduce((accumulator, [key, value]) => {
   accumulator[key] = value;

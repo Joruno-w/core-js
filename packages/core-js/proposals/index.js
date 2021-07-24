@@ -1,1 +1,1 @@
-require('../stage');
+require('../stage/1');
