@@ -1,4 +1,6 @@
-var parent = require('../../web/url-search-params');
-require('../../modules/web.dom-collections.iterator');
+require('../../modules/es.object.to-string');
+require('../../modules/es.array.iterator');
+require('../../modules/web.url-search-params.constructor');
+var path = require('../../internals/path');
 
-module.exports = parent;
+module.exports = path.URLSearchParams;

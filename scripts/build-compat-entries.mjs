@@ -30,7 +30,6 @@ const entriesList = await globby([
   'packages/core-js/proposals/**/*.js',
   'packages/core-js/stable/**/*.js',
   'packages/core-js/stage/**/*.js',
-  'packages/core-js/web/**/*.js',
 ]);
 
 const entriesMap = helpers.sortObjectByKey(Object.fromEntries(await Promise.all(entriesList.map(async file => {

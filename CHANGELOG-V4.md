@@ -122,7 +122,8 @@
 - `Symbol#@@toPrimitive` method polyfill moved from `es.symbol` to `es.symbol.to-primitive`
 - Added `exports` fields with all entries to `package.json` of packages
 - Namespace / entries for full set of features (stable ES, ES proposals, web standards) renamed from `/features/` to `/full/`
-- Added `/actual/` namespace for all stable features and stage 3 ES proposals 
+- Added `/actual/` namespace for all stable features and stage 3 ES proposals
+- Dropped `/web/` namespace as almost useless in favor of `/stable/`, `/actual/`, `/full/`
 - Dropped `*/virtual/index.js` entries
 - `@core-js/compat/{ data, entries, external, modules, modules-by-versions }` now are proxy JS files since ESM imports does not support JSON
 - Added built-in definitions to compat data
