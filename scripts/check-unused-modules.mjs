@@ -1,7 +1,7 @@
 /* eslint-disable no-console -- output */
 import { globby } from 'globby';
 import konan from 'konan';
-import { modules } from 'core-js-compat/src/data.mjs';
+import { modules } from '../packages/core-js-compat/src/data.mjs';
 
 async function jsModulesFrom(path) {
   return new Set((await fs.readdir(path)).filter(it => it.endsWith('.js')).map(it => it.slice(0, -3)));
@@ -15,8 +15,7 @@ function log(set, kind) {
 }
 
 const globalModules = await jsModulesFrom('packages/core-js/modules');
-// TODO: drop this special case from core-js@4
-const definedModules = new Set(modules).add('esnext.string.at-alternative');
+const definedModules = new Set(modules);
 
 globalModules.forEach(it => definedModules.has(it) && globalModules.delete(it));
 

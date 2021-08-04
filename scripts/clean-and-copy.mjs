@@ -31,7 +31,6 @@ const license = [
 
 await Promise.all([
   copy('packages/core-js-pure/override', 'packages/core-js-pure', options(true)),
-  copy('packages/core-js/postinstall.js', 'packages/core-js-bundle/postinstall.js', options(true)),
   ...license.map(path => copy('LICENSE', path, options(true))),
 ]);
 
