@@ -1421,10 +1421,6 @@ export const data = {
   },
   'esnext.array.is-template-object': {
   },
-  'esnext.array.last-index': {
-  },
-  'esnext.array.last-item': {
-  },
   'esnext.array.unique-by': {
   },
   'esnext.async-iterator.constructor': {

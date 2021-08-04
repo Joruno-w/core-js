@@ -562,8 +562,6 @@ for (PATH of ['core-js-pure/commonjs', 'core-js/commonjs']) {
   ok(load('full/array/find-last-index')([1, 2, 3], it => it % 2) === 2);
   ok(typeof load('full/array/group-by') === 'function');
   ok(typeof load('full/array/is-template-object') === 'function');
-  load('full/array/last-item');
-  load('full/array/last-index');
   ok(typeof load('full/array/unique-by') === 'function');
   ok(typeof load('full/array/virtual/filter-reject') === 'function');
   ok(load('full/array/virtual/find-last').call([1, 2, 3], it => it % 2) === 3);
@@ -697,7 +695,6 @@ for (PATH of ['core-js-pure/commonjs', 'core-js/commonjs']) {
   load('proposals/array-find-from-last');
   load('proposals/array-grouping');
   load('proposals/array-is-template-object');
-  load('proposals/array-last');
   load('proposals/array-unique');
   load('proposals/collection-methods');
   load('proposals/collection-of-from');

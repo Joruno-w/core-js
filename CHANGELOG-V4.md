@@ -12,6 +12,8 @@
     - [Efficient 64 bit arithmetic](https://gist.github.com/BrendanEich/4294d5c212a6d2254703)
     - [Object iteration](https://github.com/tc39/proposal-object-iteration)
     - [`String.prototype.at` with code points semantic](https://github.com/mathiasbynens/String.prototype.at)
+  - Suspended:
+    - [Getting last item from `Array`](#getting-last-item-from-array)
   - Dead:
     - [`Promise.try`](https://github.com/tc39/proposal-promise-try)
     - [`URL` as a ES proposal](https://github.com/jasnell/proposal-url) - it's left in web standards polyfills
@@ -19,6 +21,8 @@
   - [`Reflect` metadata](https://github.com/rbuckton/reflect-metadata) didn't become an official proposal, should be replaced by `@@metadata`-based logic
 - Removed modules:
   - `es.array.is-array` (required for ES3 only)
+  - `es.array.last-index` (suspended)
+  - `es.array.last-item` (suspended)
   - `es.date.now` (required for ES3 only)
   - `es.date.to-string` (required for IE8- only)
   - `es.function.bind` (required for ES3 only)
@@ -56,8 +60,10 @@
   - `esnext.symbol.replace-all` (obsolete)
   - `esnext.weak-map.upsert` (obsolete)
 - Removed features:
-  - `Map#updateOrInsert` (obsolete)
-  - `Map#upsert` (obsolete)
+  - `Array.prototype.lastIndex` (suspended)
+  - `Array.prototype.lastItem` (suspended)
+  - `Map.prototype.updateOrInsert` (obsolete)
+  - `Map.prototype.upsert` (obsolete)
   - `Math.iaddh` (withdrawn)
   - `Math.imulh` (withdrawn)
   - `Math.isubh` (withdrawn)
@@ -78,7 +84,7 @@
   - `Reflect.metadata` (didn't become an official proposal, should be replaced by `@@metadata`-based logic)
   - `Symbol.patternMatch` (is not a part of actual proposal, should be replaced by `Symbol.matcher`)
   - `Symbol.replaceAll` (obsolete)
-  - `WeakMap#upsert` (obsolete)
+  - `WeakMap.prototype.upsert` (obsolete)
 - Dropped non-standard `Symbol.{ useSetter, useSimple }` methods control of `Symbol` polyfill
 - Tools moved to scoped packages, `core-js-builder` and `core-js-compat` renamed to `@core-js/builder` and `@core-js/compat` respectively
 - Dropped NodeJS < 14.15 support in `@core-js/builder` and `@core-js/compat`

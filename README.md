@@ -114,7 +114,6 @@ Promise.resolve(32).then(x => console.log(x)); // => 32
       - [`Array` filtering](#array-filtering)
       - [`Array` grouping](#array-grouping)
       - [`Array` deduplication](#array-deduplication)
-      - [Getting last item from `Array`](#getting-last-item-from-array)
       - [`Number.range`](#numberrange)
       - [`Number.fromString`](#numberfromstring)
       - [`Math` extensions](#math-extensions)
@@ -2238,30 +2237,6 @@ core-js/full/typed-array/unique-by
   { id: 2, uid: 10000 },
   { id: 3, uid: 10001 }
 ].uniqueBy(it => it.id);    // => [{ id: 1, uid: 10000 }, { id: 3, uid: 10001 }]
-```
-##### [Getting last item from `Array`](https://github.com/keithamus/proposal-array-last)[⬆](#index)
-Modules [`esnext.array.last-item`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.array.last-item.js) and [`esnext.array.last-index`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.array.last-index.js)
-```js
-class Array {
-  attribute lastItem: any;
-  readonly attribute lastIndex: uint;
-}
-```
-[*CommonJS entry points:*](#commonjs-api)
-```js
-core-js/proposals/array-last
-core-js/full/array/last-item
-core-js/full/array/last-index
-```
-[*Examples*](https://goo.gl/2TmcMT):
-```js
-[1, 2, 3].lastItem;  // => 3
-[1, 2, 3].lastIndex; // => 2
-
-const array = [1, 2, 3];
-array.lastItem = 4;
-
-array; // => [1, 2, 4]
 ```
 ##### [`Number.range`](https://github.com/tc39/proposal-Number.range)[⬆](#index)
 Module [`esnext.number.range`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.number.range.js) and [`esnext.bigint.range`](https://github.com/zloirock/core-js/blob/master/packages/core-js/modules/esnext.bigint.range.js)
