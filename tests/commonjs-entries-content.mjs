@@ -143,10 +143,10 @@ async function unexpectedInnerNamespace(namespace, unexpected) {
 }
 
 await Promise.all([
-  unexpectedInnerNamespace('es', /\/(actual|features|stable)\//),
-  unexpectedInnerNamespace('stable', /\/(actual|features)\//),
-  unexpectedInnerNamespace('actual', /\/(es|features)\//),
-  unexpectedInnerNamespace('features', /\/(es|stable)\//),
+  unexpectedInnerNamespace('es', /\/(actual|full|stable)\//),
+  unexpectedInnerNamespace('stable', /\/(actual|full)\//),
+  unexpectedInnerNamespace('actual', /\/(es|full)\//),
+  unexpectedInnerNamespace('full', /\/(es|stable)\//),
 ]);
 
 console.log(chalk.green('entry points content tested'));
