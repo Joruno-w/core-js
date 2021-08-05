@@ -1,16 +1,21 @@
-/* eslint-disable import/no-dynamic-require, node/global-require -- required */
+/* eslint-disable no-console, import/no-dynamic-require, node/global-require -- required */
 import { ok } from 'assert';
 import { join } from 'path';
-const compat = require('@core-js/compat/data');
+import compat from '@core-js/compat/data';
+import entries from '@core-js/compat/entries';
+
+const entriesSet = new Set(Object.keys(entries));
 let tested = 0;
 let PATH;
 
-function load(...path) {
+function load(...components) {
+  const path = join(PATH, ...components);
   tested++;
-  return require(join(PATH, ...path));
+  entriesSet.delete(path);
+  return require(path);
 }
 
-for (PATH of ['core-js-pure/commonjs', 'core-js/commonjs']) {
+for (PATH of ['core-js-pure', 'core-js']) {
   for (const NS of ['es', 'stable', 'actual', 'full']) {
     let O;
     ok(load(NS, 'global-this').Math === Math);
@@ -118,6 +123,7 @@ for (PATH of ['core-js-pure/commonjs', 'core-js/commonjs']) {
     ok(load(NS, 'math/tanh')(Infinity) === 1);
     ok(load(NS, 'math/to-string-tag') === 'Math');
     ok(load(NS, 'math/trunc')(1.5) === 1);
+    ok('cbrt' in load(NS, 'math'));
     ok(load(NS, 'number/constructor')('5') === 5);
     ok(load(NS, 'number/epsilon') === 2 ** -52);
     ok(load(NS, 'number/is-finite')(42.5));
@@ -771,23 +777,26 @@ for (const NS of ['es', 'stable', 'actual', 'full']) {
   load(NS, 'typed-array/to-locale-string');
   load(NS, 'typed-array/to-string');
   load(NS, 'typed-array/values');
+  load(NS, 'typed-array/methods');
   ok(typeof load(NS, 'typed-array').Uint32Array === 'function');
 }
 
 for (const NS of ['actual', 'full']) {
   load(NS, 'typed-array/at');
+  load(NS, 'typed-array/find-last');
+  load(NS, 'typed-array/find-last-index');
 }
 
 load('full/typed-array/filter-reject');
-load('full/typed-array/find-last');
-load('full/typed-array/find-last-index');
 load('full/typed-array/group-by');
 load('full/typed-array/unique-by');
-
-PATH = 'core-js';
 
 load('bundle/actual');
 load('bundle/full');
 
-// eslint-disable-next-line no-console -- output
 console.log(chalk.green(`tested ${ chalk.cyan(tested) } commonjs entry points`));
+
+if (entriesSet.size) {
+  console.log(chalk.red('not tested entries:'));
+  entriesSet.forEach(it => console.log(chalk.cyan(it)));
+}
